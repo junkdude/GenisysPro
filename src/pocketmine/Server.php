@@ -300,6 +300,7 @@ class Server{
 	public $playerLogoutMsg = "";
 	public $keepExperience = false;
 	public $limitedCreative = true;
+	public $mobsai = false;
 	public $chunkRadius = -1;
 	public $destroyBlockParticle = true;
 	public $allowSplashPotion = true;
@@ -1546,7 +1547,7 @@ class Server{
 		$this->anvilEnabled = $this->getAdvancedProperty("enchantment.enable-anvil", true);
 		$this->enchantingTableEnabled = $this->getAdvancedProperty("enchantment.enable-enchanting-table", true);
 		$this->countBookshelf = $this->getAdvancedProperty("enchantment.count-bookshelf", false);
-
+		$this->mobsai = $this->getAdvancedProperty("entity.mobsai", false);
 		$this->allowInventoryCheats = $this->getAdvancedProperty("inventory.allow-cheats", false);
 		$this->folderpluginloader = $this->getAdvancedProperty("developer.folder-plugin-loader", true);
 
