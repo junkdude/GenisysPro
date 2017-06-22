@@ -1,7 +1,7 @@
 GenisysPro
 ===================
 
-![GenisysPro](https://github.com/NetworkGamesMCPE/GenisysPro/blob/master/2017-22-6--22-17-52.jpeg?raw=true)
+![GenisysPro](https://github.com/NetworkGamesMCPE/GenisysPro/blob/master/Logo.jpeg?raw=true)
 
 [![Build Status](https://travis-ci.org/GenisysPro/GenisysPro.svg?branch=master)](https://travis-ci.org/GenisysPro/GenisysPro)
 [![build status](https://gitlab.com/GenisysPro/GenisysPro/badges/master/build.svg)](https://gitlab.com/GenisysPro/GenisysPro/commits/master)
