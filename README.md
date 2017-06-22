@@ -18,7 +18,6 @@ Port: **19132**
 IP: **genpro.derddy.com (beta testing/devlopment)**    
 Port: **19132**
 
--------------
 Languages
 -------------
 [English](https://github.com/GenisysPro/GenisysPro#english)  
