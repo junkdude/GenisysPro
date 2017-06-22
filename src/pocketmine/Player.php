@@ -1864,10 +1864,10 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 						if(!$this->hasEffect(Effect::JUMP) and $diff > 0.6 and $expectedVelocity < $this->speed->y and !$this->server->getAllowFlight()){
 							if($this->inAirTicks < 100){
 								$this->setMotion(new Vector3(0, $expectedVelocity, 0));
-							}elseif($this->kick("Flying is not enabled on this server")){
+							}/**elseif($this->kick("Flying is not enabled on this server")){
 								$this->timings->stopTiming();
 								return false;
-							}
+							}*/
 						}
 					}
 
@@ -2367,7 +2367,7 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 			case ProtocolInfo::ADVENTURE_SETTINGS_PACKET:
 				//TODO: player abilities, check for other changes
 				if($packet->isFlying and !$this->allowFlight and !$this->server->getAllowFlight()){
-					$this->kick("Flying is not enabled on this server");
+					#$this->kick("Flying is not enabled on this server");
 					break;
 				}else{
 					$this->server->getPluginManager()->callEvent($ev = new PlayerToggleFlightEvent($this, $packet->isFlying));
