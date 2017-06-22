@@ -37,7 +37,7 @@ class TransferServerCommand extends VanillaCommand{
 		parent::__construct(
 			$name,
 			"Connect to another server",
-			"/transferserver <address> [port]",
+			"/transferserver <address> <port>",
 			["transfer", "transferserver", "ts"]
 		);
 		$this->setPermission("pocketmine.command.transferserver");
@@ -55,7 +55,7 @@ class TransferServerCommand extends VanillaCommand{
 				return true;
 			}
 			if(count($args) < 2 || !is_string(($address = $args[0])) || !is_numeric(($port = $args[1]))){
-				$sender->sendMessage("Usage: /transferserver <address> [port]");
+				$sender->sendMessage("Usage: /transferserver <address> <port>");
 				return false;
 			}
 			$pk = new TransferPacket();
