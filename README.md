@@ -6,6 +6,19 @@ GenisysPro
 [![Build Status](https://travis-ci.org/GenisysPro/GenisysPro.svg?branch=master)](https://travis-ci.org/GenisysPro/GenisysPro)
 [![build status](https://gitlab.com/GenisysPro/GenisysPro/badges/master/build.svg)](https://gitlab.com/GenisysPro/GenisysPro/commits/master)
 
+## Can I test this before I download it?
+Yes, you can. Some of the below are professional networks, and at times there are dev servers running and you might be lucky enough to get in..<br>
+
+IP: **play.networkgames.eu**    
+Port: **19132**    
+
+IP: **pe.RevHub.eu**    
+Port: **19132**
+
+IP: **genpro.derddy.com (beta testing/devlopment)**    
+Port: **19132**
+
+-------------
 Languages
 -------------
 [English](https://github.com/GenisysPro/GenisysPro#english)  
