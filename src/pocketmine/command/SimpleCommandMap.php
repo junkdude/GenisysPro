@@ -136,6 +136,7 @@ class SimpleCommandMap implements CommandMap{
 		$this->register("pocketmine", new HelpCommand("help"), null, true);
 		$this->register("pocketmine", new StopCommand("stop"), null, true);
 		$this->register("pocketmine", new TellCommand("tell"));
+		$this->register("pocketmine", new TellCommand("w"));
 		$this->register("pocketmine", new DefaultGamemodeCommand("defaultgamemode"));
 		$this->register("pocketmine", new BanCommand("ban"));
 		$this->register("pocketmine", new BanIpCommand("ban-ip"));
