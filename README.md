@@ -3,8 +3,7 @@ GenisysPro
 
 ![GenisysPro](https://github.com/NetworkGamesMCPE/GenisysPro/blob/master/Logo.jpeg?raw=true)
 
-[![Build Status](https://travis-ci.org/GenisysPro/GenisysPro.svg?branch=master)](https://travis-ci.org/GenisysPro/GenisysPro)
-[![build status](https://gitlab.com/GenisysPro/GenisysPro/badges/master/build.svg)](https://gitlab.com/GenisysPro/GenisysPro/commits/master)
+[![CircleCI](https://circleci.com/gh/NetworkGamesMCPE/GenisysPro/tree/master.svg?style=svg)](https://circleci.com/gh/NetworkGamesMCPE/GenisysPro/tree/master)
 
 ## Can I test this before I download it?
 Yes, you can. There are our member who already use it, and at times there are dev servers running and you might be lucky enough to get in..<br>
