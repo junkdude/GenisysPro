@@ -9,8 +9,8 @@ if exist bin\php\php.exe (
 	set PHP_BINARY=php
 )
 
-if exist Genisys*.phar (
-	set POCKETMINE_FILE=Genisys*.phar
+if exist GenisysPro_*.phar (
+	set POCKETMINE_FILE=GenisysPro_*.phar
 ) else (
 	if exist PocketMine-MP.phar (
 		set POCKETMINE_FILE=PocketMine-MP.phar
