@@ -1,6 +1,3 @@
-GenisysPro
-===================
-
 ![GenisysPro](https://github.com/NetworkGamesMCPE/GenisysPro/blob/master/Logo.jpeg?raw=true)
 
 ## Download Build GenisysPro 
