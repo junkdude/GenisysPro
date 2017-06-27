@@ -59,6 +59,7 @@ class ItemFrame extends Flowable{
 		}
 
 		if($tile->hasItem()){
+			return;//anyone can rotate items in itemframe #to fix
 			$tile->setItemRotation(($tile->getItemRotation() + 1) % 8);
 		}else{
 			if($item->getCount() > 0){

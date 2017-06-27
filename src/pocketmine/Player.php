@@ -1864,10 +1864,10 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 						if(!$this->hasEffect(Effect::JUMP) and $diff > 0.6 and $expectedVelocity < $this->speed->y and !$this->server->getAllowFlight()){
 							if($this->inAirTicks < 100){
 								$this->setMotion(new Vector3(0, $expectedVelocity, 0));
-							}elseif($this->kick("Flying is not enabled on this server")){
+							}/**elseif($this->kick("Flying is not enabled on this server")){
 								$this->timings->stopTiming();
 								return false;
-							}
+							}*/
 						}
 					}
 
@@ -2367,7 +2367,7 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 			case ProtocolInfo::ADVENTURE_SETTINGS_PACKET:
 				//TODO: player abilities, check for other changes
 				if($packet->isFlying and !$this->allowFlight and !$this->server->getAllowFlight()){
-					$this->kick("Flying is not enabled on this server");
+					#$this->kick("Flying is not enabled on this server");
 					break;
 				}else{
 					$this->server->getPluginManager()->callEvent($ev = new PlayerToggleFlightEvent($this, $packet->isFlying));
@@ -3479,6 +3479,7 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 				if($this->spawned === false or !$this->isAlive()){
 					break;
 				}
+				if(!$this->isOp()) return;
 
 				$tile = $this->level->getTile($this->temporalVector->setComponents($packet->x, $packet->y, $packet->z));
 				if($tile instanceof ItemFrame){
@@ -3577,7 +3578,7 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 	 * @param int    $stay Duration in ticks to stay on screen for
 	 * @param int    $fadeOut Duration in ticks for fade-out.
 	 */
-	 public function sendActionBar(string $title, string $subtitle = "", int $fadeIn = -1, int $stay = -1, int $fadeOut = -1){
+	 public function sendActionBar(string $title, string $subtitle = "", int $fadeIn = -1, int $stay = 0, int $fadeOut = -1){
 		 $this->setTitleDuration($fadeIn, $stay, $fadeOut);
 		if($subtitle !== ""){
 			$this->sendTitleText($subtitle, SetTitlePacket::TYPE_SUB_TITLE);
@@ -3586,7 +3587,7 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 	 }
 
 	 /*********/
-	public function addTitle(string $title, string $subtitle = "", int $fadeIn = -1, int $stay = -1, int $fadeOut = -1){
+	public function addTitle(string $title, string $subtitle = "", int $fadeIn = -1, int $stay = 0, int $fadeOut = -1){
 		$this->setTitleDuration($fadeIn, $stay, $fadeOut);
 		if($subtitle !== ""){
 			$this->sendTitleText($subtitle, SetTitlePacket::TYPE_SUB_TITLE);
