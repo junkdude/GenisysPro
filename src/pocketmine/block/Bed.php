@@ -232,4 +232,5 @@ class Bed extends Transparent {
             ];
         }
     }
+
 }
