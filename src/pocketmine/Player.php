@@ -57,7 +57,6 @@ use pocketmine\event\inventory\InventoryCloseEvent;
 use pocketmine\event\inventory\InventoryPickupArrowEvent;
 use pocketmine\event\inventory\InventoryPickupItemEvent;
 use pocketmine\event\player\cheat\PlayerIllegalMoveEvent;
-use pocketmine\event\player\InteractEvent;
 use pocketmine\event\player\PlayerAchievementAwardedEvent;
 use pocketmine\event\player\PlayerAnimationEvent;
 use pocketmine\event\player\PlayerBedEnterEvent;
@@ -1885,6 +1884,14 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 
 		$this->timings->stopTiming();
 
+		if(count($this->messageQueue) > 0){
+				$pk = new TextPacket();
+				$pk->type = TextPacket::TYPE_RAW;
+				$pk->message = implode("\n", $this->messageQueue);
+				$this->dataPacket($pk);
+				$this->messageQueue = [];
+		}
+
 		return true;
 	}
 
@@ -2555,7 +2562,7 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 				}
 				break;
 			case ProtocolInfo::PLAYER_ACTION_PACKET:
-				if($this->spawned === false or (!$this->isAlive() and $packet->action !== PlayerActionPacket::ACTION_SPAWN_SAME_DIMENSION and $packet->action !== PlayerActionPacket::ACTION_SPAWN_OVERWORLD)){
+				if($this->spawned === false or (!$this->isAlive() and $packet->action !== PlayerActionPacket::ACTION_SPAWN_SAME_DIMENSION and $packet->action !== PlayerActionPacket::ACTION_SPAWN_OVERWORLD and $packet->action !== PlayerActionPacket::ACTION_SPAWN_NETHER)){
 					break;
 				}
 
@@ -2857,7 +2864,6 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 				$this->craftingType = self::CRAFTING_SMALL;
 
 				$target = $this->level->getEntity($packet->target);
-				$this->server->getInstance()->getPluginManager()->callEvent($ev = new InteractEvent($this, $target, $packet->action));
 
 				$cancelled = false;
 
