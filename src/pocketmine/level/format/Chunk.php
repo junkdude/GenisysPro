@@ -502,7 +502,7 @@ class Chunk{
 	public function getBlockSkyLightColumn(int $x, int $z) : string{
 		$result = "";
 		foreach($this->subChunks as $subChunk){
-			$result .= $subChunk->getSkyLightColumn($x, $z);
+			$result .= $subChunk->getBlockSkyLightColumn($x, $z);
 		}
 		return $result;
 	}
@@ -772,9 +772,9 @@ class Chunk{
 	 * @param int  $y
 	 * @param bool $generateNew Whether to create a new, modifiable subchunk if there is not one in place
 	 *
-	 * @return SubChunk|EmptySubChunk
+	 * @return SubChunkInterface
 	 */
-	public function getSubChunk(int $y, bool $generateNew = false) : SubChunk{
+	public function getSubChunk(int $y, bool $generateNew = false) : SubChunkInterface{
 		if($y < 0 or $y >= $this->height){
 			return $this->emptySubChunk;
 		}elseif($generateNew and $this->subChunks[$y] instanceof EmptySubChunk){
@@ -792,7 +792,7 @@ class Chunk{
 	 *
 	 * @return bool
 	 */
-	public function setSubChunk(int $y, SubChunk $subChunk = null, bool $allowEmpty = false) : bool{
+	public function setSubChunk(int $y, SubChunkInterface $subChunk = null, bool $allowEmpty = false) : bool{
 		if($y < 0 or $y >= $this->height){
 			return false;
 		}
